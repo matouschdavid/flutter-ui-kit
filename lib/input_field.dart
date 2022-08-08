@@ -11,15 +11,19 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(label),
-        TextField(
-          controller: controller,
-          maxLines: 1,
-          decoration: InputDecoration(hintText: hintText),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label),
+          TextField(
+            controller: controller,
+            maxLines: 1,
+            decoration: InputDecoration(hintText: hintText),
+          ),
+        ],
+      ),
     );
   }
 }
