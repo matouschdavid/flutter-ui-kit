@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mat_ui/mat_text.dart';
 
 class Button extends StatelessWidget {
   final void Function()? onTap;
   final String text;
 
   late final Color bgColor;
+  late final Color borderColor;
   late final Color fgColor;
   late final double borderWidth;
   late final bool hasBoxShadow;
@@ -12,6 +14,7 @@ class Button extends StatelessWidget {
   Button.primary({Key? key, this.onTap, required this.text}) : super(key: key) {
     bgColor = Colors.purple;
     fgColor = Colors.white;
+    borderColor = Colors.transparent;
     borderWidth = 0;
     hasBoxShadow = true;
   }
@@ -20,6 +23,7 @@ class Button extends StatelessWidget {
       : super(key: key) {
     bgColor = Colors.transparent;
     fgColor = Colors.purple;
+    borderColor = Colors.purple;
     borderWidth = 3;
     hasBoxShadow = false;
   }
@@ -28,6 +32,7 @@ class Button extends StatelessWidget {
       : super(key: key) {
     bgColor = Colors.transparent;
     fgColor = Colors.purple;
+    borderColor = Colors.transparent;
     borderWidth = 0;
     hasBoxShadow = false;
   }
@@ -40,11 +45,11 @@ class Button extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 40),
           decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: fgColor, width: borderWidth),
+              border: Border.all(color: borderColor, width: borderWidth),
               boxShadow: [
                 if (hasBoxShadow)
                   const BoxShadow(
@@ -53,7 +58,7 @@ class Button extends StatelessWidget {
                     offset: Offset(0, 4),
                   )
               ]),
-          child: Center(child: Text(text, style: TextStyle(color: fgColor))),
+          child: Center(child: MatText.h3(text, color: fgColor)),
         ),
       ),
     );

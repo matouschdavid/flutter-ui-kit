@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mat_ui/mat_text.dart';
 
 class InputField extends StatelessWidget {
   final String label;
@@ -16,7 +17,7 @@ class InputField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label),
+          MatText.label(label),
           TextField(
             controller: controller,
             maxLines: 1,
